@@ -396,7 +396,13 @@
     /* top: 25px; */
     top: 5%;
   }
+
+  /* Center the title within the section-header */
+  .videos .section-header {
+    text-align: center;
+  }
 }
+
 
 /* SMILES Section  */
 
