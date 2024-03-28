@@ -55,7 +55,140 @@
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
-      }   
+      }
+
+      /* Popular Section */
+      .videos .section-header h2 {
+        color: black; /* Set default color for the entire heading */
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      
+      .videos .section-header h2 span {
+        color:#C271FF;
+        font-weight: bold;
+      }
+      
+      .small-carousel-item {
+        width:auto;
+      }
+      
+      .videos .container .carousel-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      .videos .container .carousel-wrapper .card {
+        width: calc(25% - 20px);
+        margin: 10px;
+        box-sizing: border-box;
+      }
+      
+      .carousel-control-prev.arrow-left, .carousel-control-next.arrow-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+    
+      .carousel-control-prev.arrow-left {
+        left: -40px;
+      }
+    
+      .carousel-control-next.arrow-right {
+        right: -40px;
+      }
+
+      .author-info {
+        display: flex;
+        align-items: center;
+        margin-left: 25px;
+      }
+      
+/* Optionally, reduce card width */
+.card {
+  border: 1px solid #ddd; /* Example border */
+  border-radius: 8px; /* Example border radius */
+  text-align: left; /* Center the content within the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+  margin-bottom: 20px; /* Example margin between cards */
+  width: 100%; /* Ensures the card takes full width within its column */
+  max-width: 400px; /* Example maximum width for each card */
+  padding: 25px;
+}
+
+/* Optionally, you can add styling for the card elements */
+.card img {
+  max-width: 100%; /* Ensure the image doesn't exceed the card width */
+  border-radius: 8px; /* Example border radius */
+  margin-bottom: 10px; /* Example margin */
+}
+
+.card h3 {
+  font-size: 20px; /* Example font size */
+  margin-bottom: 10px; /* Example margin */
+  font-weight: bold;
+}
+
+.card p {
+  margin-bottom: 10px; /* Example margin */
+}
+
+.author-info {
+  display: flex; /* Change display to flex */
+  align-items: left; /* Align items vertically center */
+  justify-content: left; /* Center contents horizontally */
+  margin-top: 25px; /* Example margin */
+}
+
+.author-pic {
+  width: 50px; /* Example width */
+  height: 50px; /* Example height */
+  border-radius: 50%; /* Make it circular */
+}
+
+.video-author {
+  font-weight: bold; /* Example font weight */
+  margin-bottom: 0; /* Remove default margin */
+  color: #C271FF;
+  margin-left: 20px;
+}
+
+.star-rating {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+}
+
+.star-rating img {
+  width: 16px; /* Example width for the star icons */
+  height: 16px; /* Example height for the star icons */
+  margin-right: 2px; /* Example margin between star icons */
+}
+
+/* Optionally, you can add styling for the star icons */
+.stars {
+  /* Add any necessary styling for the stars */
+  display: inline-block; /* Ensures stars are displayed inline */
+  margin-top: -15px;
+}
+
+/* Optionally, you can add styling for the duration */
+.duration {
+  /* Add any necessary styling for the duration */
+  font-size: 14px; /* Example font size for the duration */
+  color:#C271FF; /* Example color for the duration */
+  margin-top: -15px;
+}
+
+@media (max-width: 576px) { /* Adjust the maximum width as needed */
+  .videos .carousel-inner .carousel-item {
+    padding: 0 10px; /* Adjust the padding as needed */
+  }
+}
+
     </style>
   </head>
   <body class="body">
@@ -155,16 +288,16 @@
       <section class="quotes section d-flex align-items-center justify-content-center">
         <div class="container">
           <div class="row">
-            <div class="col-lg-12">
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div>
+              <div id="quotesCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" id="quotes-carousel">
                   <!-- Quotes will be dynamically loaded here -->
                 </div>
-                <a class="carousel-control-prev arrow-left" href="#carouselExampleControls" role="button" data-slide="prev">
+                <a class="carousel-control-prev arrow-left" href="#quotesCarousel" role="button" data-slide="prev">
                   <img src="images/arrow_white_left.png" alt="Quote Previous" aria-hidden="true" />
                   <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next arrow-right" href="#carouselExampleControls" role="button" data-slide="next">
+                <a class="carousel-control-next arrow-right" href="#quotesCarousel" role="button" data-slide="next">
                   <img src="images/arrow_white_right.png" alt="Quote Next" aria-hidden="true" />
                   <span class="sr-only">Next</span>
                 </a>
@@ -173,56 +306,148 @@
           </div>
         </div>
       </section>
-    </main>           
+      <section class="videos mobile">
+        <div class="section-header">
+          <h2>Most <span>popular</span> tutorials</h2>
+        </div>
+        <div id="videosCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Video cards will be dynamically added here -->
+          </div>
+          <div class="loader"></div>
+          <a class="carousel-control-prev arrow-left" href="#videosCarousel" role="button" data-slide="prev">
+            <img src="images/arrow_black_left.png" alt="Quote Previous" aria-hidden="true" />
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next arrow-right" href="#videosCarousel" role="button" data-slide="next">
+            <img src="images/arrow_black_right.png" alt="Quote Next" aria-hidden="true" />
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>   
+    </main>
+
     <script>
       $(document).ready(function () {
-        // Function to fetch quotes from the API
-        function fetchQuotes() {
-          $.ajax({
-            url: "https://smileschool-api.hbtn.info/quotes",
-            method: "GET",
-            beforeSend: function () {
-              // Display loader while fetching quotes
-              $("#quotes-carousel").html('<div class="loader"></div>');
-            },
-            success: function (data) {
-              // Remove loader once quotes are fetched
-              $(".loader").remove();
-    
-              // Populate carousel with fetched quotes
-              data.forEach(function (quote, index) {
-                var activeClass = index === 0 ? "active" : "";
-                var carouselItem = `
-                  <div class="carousel-item ${activeClass}">
-                    <div class="row mx-auto align-items-center">
-                      <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
-                        <img src="${quote.pic_url}" class="d-block align-self-center" alt="Carousel Pic ${index + 1}" />
-                      </div>
-                      <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
-                        <div class="quote-text">
-                          <p class="text-white">${quote.text}</p>
-                          <h4 class="text-white font-weight-bold">${quote.name}</h4>
-                          <span class="text-white">${quote.title}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>`;
-                $("#quotes-carousel").append(carouselItem);
+          // Function to fetch quotes from the API
+          function fetchQuotes() {
+              $.ajax({
+                  url: "https://smileschool-api.hbtn.info/quotes",
+                  method: "GET",
+                  beforeSend: function () {
+                      // Display loader while fetching quotes
+                      $("#quotes-carousel").html('<div class="loader"></div>');
+                  },
+                  success: function (data) {
+                      // Remove loader once quotes are fetched
+                      $(".loader").remove();
+      
+                      // Populate carousel with fetched quotes
+                      data.forEach(function (quote, index) {
+                          var activeClass = index === 0 ? "active" : "";
+                          var carouselItem = `
+                              <div class="carousel-item ${activeClass}">
+                                  <div class="row mx-auto align-items-center">
+                                      <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
+                                          <img src="${quote.pic_url}" class="d-block align-self-center" alt="Carousel Pic ${index + 1}" />
+                                      </div>
+                                      <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
+                                          <div class="quote-text">
+                                              <p class="text-white">${quote.text}</p>
+                                              <h4 class="text-white font-weight-bold">${quote.name}</h4>
+                                              <span class="text-white">${quote.title}</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>`;
+                          $("#quotes-carousel").append(carouselItem);
+                      });
+      
+                      // Activate carousel
+                      $(".carousel").carousel();
+                  },
+                  error: function () {
+                      // Handle error
+                      $("#quotes-carousel").html('<div class="text-white">Failed to fetch quotes. Please try again later.</div>');
+                  }
               });
-    
-              // Activate carousel
-              $(".carousel").carousel();
-            },
-            error: function () {
-              // Handle error
-              $("#quotes-carousel").html('<div class="text-white">Failed to fetch quotes. Please try again later.</div>');
-            }
+          }
+      
+          // Function to fetch and display video cards
+function fetchVideoCards() {
+  $.ajax({
+      url: "https://smileschool-api.hbtn.info/popular-tutorials",
+      method: "GET",
+      beforeSend: function () {
+          // Display loader while fetching video cards
+          $(".loader").show();
+      },
+      success: function (data) {
+          // Remove loader once video cards are fetched
+          $(".loader").hide();
+
+          // Split data into chunks of 4
+          var chunks = [];
+          for (var i = 0; i < data.length; i += 4) {
+              chunks.push(data.slice(i, i + 4));
+          }
+
+          // Populate carousel with fetched video cards
+          chunks.forEach(function (chunk, index) {
+              var activeClass = index === 0 ? "active" : "";
+              var carouselItem = `<div class="carousel-item ${activeClass}"><div class="row">`;
+
+              chunk.forEach(function (video) {
+                  // Generate star images based on the star rating
+                  var starsHtml = '';
+                  for (var i = 0; i < 5; i++) {
+                      if (i < video.star) {
+                          starsHtml += '<img src="images/star_on.png" alt="Filled Star">';
+                      } else {
+                          starsHtml += '<img src="images/star_off.png" alt="Empty Star">';
+                      }
+                  }
+
+                  // Create card item HTML
+                  var cardItem = `
+                  <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <img src="${video.thumb_url}" alt="${video.title}">
+                        <h3>${video.title}</h3>
+                        <p>${video["sub-title"]}</p>
+                        <div class="author-info">
+                            <img class="author-pic small-circle" src="${video.author_pic_url}" alt="${video.author}">
+                            <h6 class="video-author">${video.author}</h6>
+                        </div>
+                        <div class="star-rating">
+                            <div class="stars">${starsHtml}</div>
+                            <p class="duration">${video.duration}</p>
+                        </div>
+                    </div>
+                </div>`;
+                  carouselItem += cardItem;
+              });
+
+              carouselItem += `</div></div>`;
+              $(".videos .carousel-inner").append(carouselItem);
           });
-        }
+
+          // Initialize the carousel for the videos section
+          $('.videos .carousel').carousel();
+      },
+      error: function () {
+          // Handle error
+          $(".videos .carousel-inner").html('<div class="text-white">Failed to fetch video cards. Please try again later.</div>');
+      }
+  });
+}
+
     
-        // Fetch quotes on page load
-        fetchQuotes();
+          // Fetch quotes and video cards on page load
+          fetchQuotes();
+          fetchVideoCards();
       });
     </script>
-  </body>
-</html>
+    
+      
+    
