@@ -189,15 +189,14 @@
 /* Quotes Section  */
 
 .quotes {
-  height: 392px;
+  height: 400px;
   background-color: var(--main-color);
 }
 
-.quotes .carousel-item img {
+.quotes .item img {
   width: 160px;
   border-radius: 75px;
   margin-left: 10px;
-  z-index: 1;
 }
 
 .quote-text {
@@ -213,7 +212,6 @@
   font-size: 22px;
   line-height: 34px;
   margin-bottom: 22px;
-  margin-right: 50px;
 }
 
 .quote-text h4 {
@@ -227,6 +225,52 @@
 .carousel-control-prev img,
 .carousel-control-next img {
   width: 30px;
+}
+
+/* Overwriting Slick's controls */
+#carousel-video .slick-next.slick-arrow,
+#carousel-video-latest .slick-next.slick-arrow {
+  background: url(images/arrow_black_right.png) no-repeat !important;
+  background-size: auto 80px !important;
+}
+#carousel-video .slick-prev.slick-arrow,
+#carousel-video-latest .slick-prev.slick-arrow {
+  background: url(images/arrow_black_left.png) no-repeat !important;
+  background-size: auto 80px !important;
+}
+
+#carousel-quote .slick-next.slick-arrow {
+  background: url(images/arrow_white_right.png) no-repeat !important;
+  background-size: auto 80px !important;
+}
+#carousel-quote .slick-prev.slick-arrow {
+  background: url(images/arrow_white_left.png) no-repeat !important;
+  background-size: auto 80px !important;
+}
+
+.slick-next.slick-arrow {
+  height: 80px;
+  width: 60px;
+  right: -80px;
+  font-family: none !important;
+  opacity: 0.5;
+}
+
+.slick-prev.slick-arrow {
+  height: 80px;
+  width: 60px;
+  left: -80px;
+  opacity: 0.5;
+}
+
+.slick-prev.slick-arrow::before, .slick-next.slick-arrow::before {
+  opacity: 0;
+  font-family: none !important;
+  content: none;
+}
+
+.slick-next.slick-arrow:hover, .slick-prev.slick-arrow:hover {
+  opacity: 0.8;
 }
 
 .quotes .carousel-control-prev.arrow-left {
@@ -261,7 +305,7 @@
     height: auto;
   }
   .quotes .carousel-item img {
-    margin: 50px auto 0 auto;
+    margin: 90px auto 0 auto;
     padding-bottom: 10px;
   }
   .quotes .carousel-item .quote-text {
@@ -271,21 +315,34 @@
   .quotes .carousel-control-prev.arrow-left {
     bottom: var(--arrow-move-y);
     left: var(--arrow-move-x);
-    margin-left: 10px;
   }
 
   .quotes .carousel-control-next.arrow-right {
     bottom: var(--arrow-move-y);
     right: var(--arrow-move-x);
-    margin-right: 10px;
   }
 
   .quote-text {
     padding: 0px;
     padding-top: 24px;
-    padding-left: 50px;
   }
 }
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #C271FF;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 /* POPULAR SECTION  */
 
@@ -305,17 +362,13 @@
   width: 16rem;
 }
 
-.popular .card {
-  padding-bottom: 87px;
-}
-
 .section .card-img-overlay {
   /* top: 25px; */
   top: 5%;
 }
 .section .card-title {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 15px;
   color: var(--background-color);
 }
 
@@ -336,6 +389,10 @@
 .popular .carousel-control-next.arrow-right {
   right: var(--popular-arrows-x);
 }
+
+
+
+
 
 @media screen and (max-width: 1280px) {
   :root {
@@ -396,13 +453,7 @@
     /* top: 25px; */
     top: 5%;
   }
-
-  /* Center the title within the section-header */
-  .videos .section-header {
-    text-align: center;
-  }
 }
-
 
 /* SMILES Section  */
 
@@ -910,4 +961,8 @@
   .results .card {
     width: 90vw;
   }
+}
+/* slick styling */
+.slick-slide img {
+  display: inline !important;
 }
