@@ -201,6 +201,7 @@
 
 .quote-text {
   padding-left: 53px;
+  padding-right: 53px;
 }
 
 .quotes .row [class*="col"] {
@@ -278,19 +279,110 @@
 .quotes .carousel-control-next.arrow-right {
   padding-left: var(--quotes-arrows-pad);
 }
+@media screen and (max-width: 1340px) {
+  .slick-next.slick-arrow {
+    right: -60px;
+  }
+  .slick-prev.slick-arrow {
+    left: -40px;
+  }
+  .carousel-video .slick-next.slick-arrow {
+    right: -70px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .carousel-video .slick-next.slick-arrow {
+    right: -60px;
+  }
+}
+@media screen and (max-width: 1240px) {
+  .carousel-video .slick-next.slick-arrow {
+    right: -40px;
+  }
+  .quotes .slick-next.slick-arrow {
+    right: -50px;
+  }
+}
+@media screen and (max-width: 1210px) {
 
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
+  .carousel-video .slick-next.slick-arrow {
+    right: -50px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .slick-prev.slick-arrow {
+    left: -50px;
+  }
+  .slick-next.slick-arrow {
+    right: -70px;
+  }
+}
+@media screen and (max-width: 1149px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
+}
 @media screen and (max-width: 991px) {
   .quotes .carousel-item img {
     margin-left: 80px;
   }
   .quote-text {
-    margin-right: 150px;
+    padding-left: 43px;
+  }
+  .slick-prev.slick-arrow {
+    left: -40px;
+  }
+  .slick-next.slick-arrow {
+    right: -40px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .slick-prev.slick-arrow {
+    left: -50px;
+  }
+  .slick-next.slick-arrow {
+    right: -50px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .quotes .carousel-item img {
     margin-left: 40px;
+  }
+  .slick-next.slick-arrow {
+    right: -40px;
+  }
+  .slick-prev.slick-arrow {
+    left: -60px;
+  }
+  .quotes .slick-next.slick-arrow {
+    right: -60px;
+  } 
+  .quotes .slick-prev.slick-arrow {
+    left: -50px;
+  }
+}
+@media screen and (max-width: 635px) {
+  .slick-prev.slick-arrow {
+    left: -40px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
   }
 }
 
@@ -320,9 +412,23 @@
     right: var(--arrow-move-x);
   }
 
+  .container {
+    margin-top: 50px;
+  }
   .quote-text {
     padding: 0px;
-    padding-top: 24px;
+    padding-top: 10px;
+    text-align: left;
+    padding-bottom: 50px;
+  }
+  button.slick-next.slick-arrow {
+    margin-right: 50px;
+  }
+  button.slick-prev.slick-arrow {
+    margin-left: 70px;
+  }
+  .quotes .slick-next.slick-arrow, .quotes .slick-prev.slick-arrow{
+    top: 100px;
   }
 }
 
@@ -363,6 +469,7 @@
 .section .card-img-overlay {
   /* top: 25px; */
   top: 5%;
+  margin-left: 60px;
 }
 .section .card-title {
   font-size: 16px;
@@ -387,10 +494,6 @@
 .popular .carousel-control-next.arrow-right {
   right: var(--popular-arrows-x);
 }
-
-
-
-
 
 @media screen and (max-width: 1280px) {
   :root {
@@ -450,6 +553,13 @@
   .section .card-img-overlay {
     /* top: 25px; */
     top: 5%;
+  }
+  button.slick-next.slick-arrow {
+    margin-right: 15px;
+  }
+  button.slick-prev.slick-arrow {
+    margin-left: 18px;
+    z-index: 1;
   }
 }
 
@@ -712,6 +822,12 @@
   .prices-grid .pricing-table-title-1 {
     padding-right: 36px;
   }
+  button.slick-next.slick-arrow {
+    margin-right: 25px;
+  }
+  button.slick-prev.slick-arrow {
+    margin-left: 50px;
+  }
 }
 
 /* FAQ SECTION  */
@@ -908,7 +1024,9 @@
   color: var(--main-color);
   background-color: white;
 }
-
+.section.results {
+  min-height: 180px; /* Adjust the value as needed */
+}
 @media screen and (max-width: 575px) {
   .search .box1 .input-group {
     margin-bottom: 0;
@@ -959,8 +1077,17 @@
   .results .card {
     width: 90vw;
   }
+
+  .container {
+    margin-top: -10px;
 }
-/* slick styling */
-.slick-slide img {
-  display: inline !important;
+  /* slick styling */
+  .slick-slide img {
+    display: inline !important;
+  }
+}
+
+.stars {
+  display: inline-flex; /* Display stars in a row */
+  align-items: center; /* Align stars vertically */
 }
