@@ -33,7 +33,7 @@ $(document).ready(function(){
 			});
 			$('.carousel-quote').slick('unslick'); // Remove Slick from the carousel
 		  $('.carousel-quote').slick({ // Reinitialize Slick
-			infinite: false,
+			infinite: true,
 			slidesToShow: 1,
 			slidesToScroll: 1
 		  });
@@ -46,15 +46,16 @@ $(document).ready(function(){
 	  }, 2000);
 	}
 	function getStarRating(rating) {
-	  let stars = '';
-	  for (var i = 1; i <= 5; i++) {
-		if (i <= rating) {
-		  stars += '<img src="images/star_on.png" alt="star on" width="15px">';
-		} else {
-		  stars += '<img src="images/star_off.png" alt="star off" width="15px">';
+		let stars = '<div class="stars">';
+		for (var i = 1; i <= 5; i++) {
+			if (i <= rating) {
+				stars += '<img src="images/star_on.png" alt="star on" width="15px" height="15px">';
+			} else {
+				stars += '<img src="images/star_off.png" alt="star off" width="15px" height="15px">';
+			}
 		}
-	  }
-	  return stars;
+		stars += '</div>';
+		return stars;
 	}
 	function fetchVideos() {
 	  $('.loader').show();
@@ -256,18 +257,22 @@ $(document).ready(function(){
 	  let searchVal = $(this).val();
 	  fetchCourses(searchVal, '', '');
 	});
-	$('.expertness-menu .dropdown-item').on('click', function() {
-	  let topicFilter = $(this).text();
-	  $('.expertness span').text(topicFilter);
-	  
-	  fetchCourses('', topicFilter, '');
-	});
+
+	// Event listener for topic dropdown
+	$(document).on('click', '.box2 .dropdown-menu a', function() {
+		let topicFilter = $(this).text();
+		let searchVal = $('.search-text-area').val(); // Get search text
+		let sortBy = $('.box3 .dropdown-toggle span').text(); // Get selected sort option
+		fetchCourses(searchVal, topicFilter, sortBy);
+	  });
 	
-	$('.popularity-menu .dropdown-item').on('click', function() {
-	  let sortBy = $(this).text();
-	  $('.popularity span').text(sortBy);
-	  fetchCourses('', '', sortBy);
-	});
+	  // Event listener for sort dropdown
+	  $(document).on('click', '.box3 .dropdown-menu a', function() {
+		let sortBy = $(this).text();
+		let searchVal = $('.search-text-area').val(); // Get search text
+		let topicFilter = $('.box2 .dropdown-toggle span').text(); // Get selected topic
+		fetchCourses(searchVal, topicFilter, sortBy);
+	  });
 	
 	fetchLatest();
 	fetchVideos();
